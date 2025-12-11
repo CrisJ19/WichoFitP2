@@ -1,37 +1,34 @@
 package service;
 
-
 import domain.*;
-import java.util.Optional;
-
 
 public class WichoFitService {
-private Pedido pedido;
+    private Pedido pedido; // Pedido actual en memoria
 
+    // Crea un nuevo pedido para un cliente
+    public void crearPedido(Cliente cliente) {
+        this.pedido = new Pedido(cliente);
+    }
 
-public void crearPedido(Cliente cliente) {
-this.pedido = new Pedido(cliente);
-}
+    // Obtiene el pedido actual
+    public Pedido getPedido() { return pedido; }
 
+    // Agrega un item al pedido actual
+    public void agregarItem(Producto producto, int cantidad) {
+        if (pedido == null) throw new IllegalStateException("No hay pedido en creación.");
+        ItemPedido it = new ItemPedido(producto, cantidad);
+        pedido.agregarItem(it);
+    }
 
-public Pedido getPedido() { return pedido; }
+    // Confirma el pedido actual (cambia estado a CONFIRMADO)
+    public void confirmarPedido() {
+        if (pedido == null) throw new IllegalStateException("No hay pedido a confirmar.");
+        pedido.confirmar();
+    }
 
-
-public void agregarItem(Producto producto, int cantidad) {
-if (pedido == null) throw new IllegalStateException("No hay pedido en creación.");
-ItemPedido it = new ItemPedido(producto, cantidad);
-pedido.agregarItem(it);
-}
-
-
-public void confirmarPedido() {
-if (pedido == null) throw new IllegalStateException("No hay pedido a confirmar.");
-pedido.confirmar();
-}
-
-
-public String obtenerResumen() {
-if (pedido == null) throw new IllegalStateException("No hay pedido.");
-return pedido.generarResumen();
-}
+    // Obtiene el resumen formateado del pedido
+    public String obtenerResumen() {
+        if (pedido == null) throw new IllegalStateException("No hay pedido.");
+        return pedido.generarResumen();
+    }
 }
