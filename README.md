@@ -43,6 +43,82 @@ Descuento (porcentaje y monto)
 
 Total final
 
+RNF1. Usabilidad
+
+Tiempo de respuesta: La interfaz debe responder en menos de 100ms para acciones del usuario
+
+Curva de aprendizaje: Un usuario nuevo debe poder crear un pedido en menos de 2 minutos
+
+Accesibilidad: Los botones deben tener tamaño mínimo de 44x44 píxeles para facilitar clic
+
+Feedback visual: Todas las acciones deben proporcionar feedback inmediato (cambios de color, mensajes)
+
+RNF2. Rendimiento
+
+Carga inicial: La aplicación debe cargarse completamente en menos de 3 segundos
+
+Cálculos: Los cálculos financieros deben completarse en menos de 50ms
+
+Memoria: Uso máximo de memoria RAM: 256MB
+
+Imágenes: Las imágenes deben cargarse de forma asíncrona para no bloquear la interfaz
+
+RNF3. Fiabilidad
+
+Disponibilidad: La aplicación debe funcionar offline una vez cargada (excepto imágenes externas)
+
+Tolerancia a fallos: Errores en carga de imágenes no deben afectar la funcionalidad principal
+
+Consistencia: Los cálculos deben ser determinísticos e idénticos en cada ejecución
+
+Recuperación: Los datos de cliente deben persistir durante la sesión completa
+
+RNF4. Mantenibilidad
+
+Modularidad: Separación clara entre dominio, servicio y presentación
+
+Documentación: Código comentado para métodos complejos (especialmente cálculos de descuento)
+
+Extensibilidad: Diseño que permita añadir nuevos productos sin modificar lógica existente
+
+Pruebas: Estructura que facilite pruebas unitarias (aunque no implementadas en esta entrega)
+
+RNF5. Portabilidad
+
+Sistema operativo: Debe ejecutarse en Windows, macOS y Linux con Java 8+
+
+Resolución: Adaptarse a resoluciones desde 1024x768 hasta 1920x1080
+
+Dependencias: Solo dependencias estándar de Java (no librerías externas)
+
+RNF6. Seguridad
+
+Validación inputs: Prevenir inyección de código en campos de texto
+
+Datos sensibles: No almacenar información de pago ni datos personales persistentes
+
+Consistencia estados: Garantizar que pedidos confirmados no puedan ser modificados
+
+RNF7. Estándares de Diseño
+
+Consistencia visual: Uso de paleta de colores coherente en toda la aplicación
+
+Tipografía: Fuentes legibles con soporte para caracteres especiales y emojis
+
+Espaciado: Uso consistente de márgenes y padding según principios de diseño
+
+Jerarquía visual: Elementos importantes destacados apropiadamente
+
+RNF8. Experiencia de Usuario
+
+Flujo intuitivo: Progresión lógica: registro → selección → revisión → confirmación
+
+Reducción de errores: Validación en tiempo real con sugerencias para corrección
+
+Control usuario: Posibilidad de cancelar operaciones en cualquier momento
+
+Transparencia: Mostrar claramente precios, descuentos y totales en todo momento
+
 Segundo paso: Reglas del negocio
 Catálogo de productos:
 Polera básica: $40.000 normal / $35.000 volumen (≥5 unidades)
